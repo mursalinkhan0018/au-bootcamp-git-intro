@@ -63,7 +63,14 @@
 # files that were 'given to' this script. The variable "$@" will be very useful
 # for this. Let's take a look at what it gives us:
 
-echo "$@"
+# Here i am using a loop to  print the file names, one at a time. 
+for x  in e*.fasta
+do
+    echo $x
+done
+
+#I commented out the oringinal echo command
+#echo "$@"
 
 # How are you going to work with each file path?
 # HINT: for loop (remember "for do done"?)

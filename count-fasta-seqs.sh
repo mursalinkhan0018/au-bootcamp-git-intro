@@ -101,3 +101,5 @@ done
 #
 # ADD YOUR CODE BELOW:
 
+#Krista beigins her grep line below:
+grep ">" #whatever variable we're using for files in the loop | wc -l

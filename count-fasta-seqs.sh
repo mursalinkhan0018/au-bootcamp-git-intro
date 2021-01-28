@@ -103,3 +103,20 @@ done
 
 #Krista beigins her grep line below:
 grep ">" #whatever variable we're using for files in the loop | wc -l
+
+#Mursalin's added based on room4 students input 
+#!/bin/bash
+ls -l | awk -v OFS="," '$1=$1' > dummy4.csv
+x=$(awk -F "," '$9 ~ /.fasta$/ {print $9}' dummy4.csv)
+
+#echo $x
+
+i=0
+for file in $x
+do
+#echo $file
+y=$(grep ">" $file | wc -l)
+echo $y $file
+i=$((i+y))
+done
+echo $i

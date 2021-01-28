@@ -104,15 +104,24 @@ done
 #Krista beigins her grep line below:
 grep ">" #whatever variable we're using for files in the loop | wc -l
 
-#Mursalin's added based on room4 students input 
-#!/bin/bash
-ls -l | awk -v OFS="," '$1=$1' > dummy4.csv
-x=$(awk -F "," '$9 ~ /.fasta$/ {print $9}' dummy4.csv)
 
-#echo $x
+
+#Mursalin's added based on room4 students' input 
+#For Exercise2 ONLY 
+#to run in the command line you have to input 1 or 2 fasta files(will not work for more than 3, use bottom codes)
+#For example ./test.sh example-seqs1.fasta example-seqs2.fasta
+
+#!/bin/bash
+#To make it like exercise2 ONLY
+a=$(echo "$@")
+#echo $a
+echo $a | awk -v OFS="," '$1=$1' > dummy4.csv
+x1=$(awk -F "," '$1 ~ /.fasta$/ {print $1}' dummy4.csv)
+x2=$(awk -F "," '$2 ~ /.fasta$/ {print $2}' dummy4.csv)
+#echo $x1 $x2
 
 i=0
-for file in $x
+for file in $x1 $x2
 do
 #echo $file
 y=$(grep ">" $file | wc -l)
@@ -120,3 +129,25 @@ echo $y $file
 i=$((i+y))
 done
 echo $i
+rm dummy4.csv
+
+
+
+#TO GRAB all the files in the list
+#make sure to remove the comments before use
+
+#!/bin/bash
+#ls -l | awk -v OFS="," '$1=$1' > dummy4.csv
+#x=$(awk -F "," '$9 ~ /.fasta$/ {print $9}' dummy4.csv)
+
+#echo $x
+
+#i=0
+#for file in $x
+#do
+#echo $file
+#y=$(grep ">" $file | wc -l)
+#echo $y $file
+#i=$((i+y))
+#done
+#echo $i

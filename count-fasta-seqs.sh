@@ -142,4 +142,8 @@ echo $i
 #done
 #echo $i
 
-#Sarah's test to add to file
+<<<<<<< HEAD
+# Great job everybody! -Randy
+>>>>>>> fd012e01fadea5cfbdc3b7f74dde9fe0dd71c79a
+
+#Sarah's comment to test using git and committing/pushing
